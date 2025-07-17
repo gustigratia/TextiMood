@@ -1,2 +1,3 @@
 dataset/raw/*.csv
 dataset/cleaned/*.csv
+notes.txt
