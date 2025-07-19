@@ -1,42 +1,143 @@
+/* App.css */
+
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: hsl(200, 60%, 96%); /* A soft, light blue/teal background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* The #root element now acts as the main container for the app,
+   and its styling ensures it's centered and has a max-width. */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  max-width: 600px; /* Limit content width, equivalent to max-w-xl in Tailwind */
+  background-color: #ffffff; /* Keep main container white for content clarity */
+  border-radius: 12px; /* Rounded corners for the main container */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Slightly stronger soft shadow */
+  padding: 30px; /* Base padding for the container */
+  box-sizing: border-box;
+  display: flex; /* Enable flexbox for centering content inside #root */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  /* No need for justify-content: center here unless #root has a fixed height */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Styling for the main heading (h1) */
+h1 {
+  font-size: 2.25rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center; /* text-center */
+  color: #1f2937; /* Darker text color */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Styling for the textarea */
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 8px; /* Rounded corners, matches 'rounded' in Tailwind */
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 120px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-align: left; /* Ensure text in textarea is left-aligned */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+textarea:focus {
+  outline: none;
+  border-color: hsl(260, 70%, 60%); /* A vibrant purple on focus */
+  box-shadow: 0 0 0 3px hsla(260, 70%, 60%, 0.25); /* Focus ring with purple tint */
+}
+
+/* Styling for the button */
+button {
+  display: inline-block;
+  width: 100%; /* w-full */
+  padding: 12px 24px;
+  margin-top: 0.5rem; /* mt-2 */
+  background-color: hsl(240, 60%, 50%); /* A medium blue/purple */
+  color: #ffffff; /* text-white */
+  font-weight: 600; /* Semi-bold */
+  border: none;
+  border-radius: 8px; /* Rounded corners, matches 'rounded' in Tailwind */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: hsl(240, 60%, 40%); /* Darker blue/purple on hover */
+  transform: translateY(-2px); /* Slightly more pronounced lift effect */
+}
+
+button:active {
+  background-color: hsl(240, 60%, 30%); /* Even darker on active */
+  transform: translateY(0);
+}
+
+/* Styling for the model information paragraph */
+/* This new class ensures the text is always visible and styled correctly. */
+.app-info-text {
+  margin-top: 0.75rem; /* mt-3 */
+  font-size: 0.875rem; /* text-sm */
+  color: #1f2937; /* Very dark gray to ensure visibility */
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box;
+  padding: 0.5rem 1rem; /* Add some horizontal and vertical padding */
+  background-color: hsl(180, 40%, 95%); /* Very light teal background */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid hsla(180, 30%, 85%, 0.5); /* Subtle border */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+/* Styling for the prediction result display container */
+.result-display-container {
+  margin-top: 1.5rem; /* mt-6 */
+  background-color: hsl(210, 30%, 95%); /* A very light cool gray/blue background */
+  padding: 1rem; /* p-4 */
+  border-radius: 8px; /* rounded */
+  border: 1px solid hsl(210, 20%, 90%); /* A subtle border for definition */
+  font-size: 1.1rem;
+  color: #374151; /* Darker text color */
+  text-align: left; /* Ensure text in result display is left-aligned */
+  width: 100%; /* Make result display take full width within #root */
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Slightly more prominent shadow */
+}
+
+.result-display-container strong {
+  color: #1f2937; /* Even darker for the label */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #root {
+    padding: 20px;
+    margin: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 1.875rem; /* Adjust heading size for smaller screens */
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  textarea {
+    min-height: 100px;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  button {
+    padding: 10px;
+  }
 }
