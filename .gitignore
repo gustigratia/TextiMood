@@ -2,3 +2,6 @@ dataset/raw/*.csv
 dataset/cleaned/*.csv
 notes.txt
 react-sentiment/
+backend/
+ipynb_checkpoints/
+frontend/
