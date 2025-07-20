@@ -9,15 +9,12 @@ function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Note: "http://localhost:5000/predict" assumes your backend is running locally on port 5000.
-      // You might need to change this URL if your backend is hosted elsewhere.
       const response = await axios.post("http://localhost:5000/predict", {
         text: text,
       });
       setResult(response.data.result);
     } catch (error) {
       console.error("Error sending data to backend:", error);
-      // Display a user-friendly error message instead of just "Error"
       setResult("Error: Could not connect to the sentiment prediction service.");
     }
   };
@@ -39,12 +36,10 @@ function Home() {
           Predict Sentiment
         </button>
       </form>
-      {/* Menggunakan kelas CSS kustom 'app-info-text' */}
       <p className="app-info-text">
         This model is built using logistic regression trained on labeled sentiment data.
       </p>
       {result && (
-        // Mengubah className agar sesuai dengan selektor CSS di App.css
         <div className="result-display-container">
           <strong>Prediction:</strong> {result}
         </div>
