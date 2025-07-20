@@ -9,7 +9,7 @@ function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/predict", {
+      const response = await axios.post("textimood-production.up.railway.app/predict", {
         text: text,
       });
       setResult(response.data.result);
