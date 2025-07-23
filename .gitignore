@@ -3,6 +3,6 @@ dataset/cleaned/*.csv
 notes.txt
 react-sentiment/
 backend/
-ipynb_checkpoints/
+.ipynb_checkpoints/
 frontend/
 textiMood/
